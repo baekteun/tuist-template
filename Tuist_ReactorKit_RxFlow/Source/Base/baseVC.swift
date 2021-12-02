@@ -1,6 +1,6 @@
 //
 //  baseVC.swift
-// 
+//  solvedAC
 //
 //  Created by baegteun on 2021/10/29.
 //
@@ -18,7 +18,7 @@ class baseVC<T: Reactor>: UIViewController{
         view.backgroundColor = .white
         addView()
         setLayout()
-        configureUI()
+        configureVC()
     }
     
     init(reactor: T){
