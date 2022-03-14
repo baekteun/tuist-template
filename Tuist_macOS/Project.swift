@@ -9,34 +9,22 @@ let project = Project(
     targets: [
         Target(
             name: "\(projectName)",
-            platform: .iOS,
+            platform: .macOS,
             product: .app,
             bundleId: "\(orginazationIden).\(projectName)",
-            deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
-            infoPlist: .file(path: Path("Target/Support/Info.plist")),
+            deploymentTarget: .macOS(targetVersion: "12.0"),
+            infoPlist: .default,
             sources: ["Target/Source/**"],
             resources: ["Target/Resource/**"]
         ),
         Target(
             name: "\(projectName)Test",
-            platform: .iOS,
+            platform: .macOS,
             product: .unitTests,
             bundleId: "\(orginazationIden).\(projectName)Test",
-            deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
+            deploymentTarget: .macOS(targetVersion: "12.0"),
             infoPlist: .default,
             sources: ["TargetTest/Tests/**"],
-            dependencies: [
-                .target(name: projectName)
-            ]
-        ),
-        Target(
-            name: "\(projectName)UITest",
-            platform: .iOS,
-            product: .uiTests,
-            bundleId: "\(orginazationIden).\(projectName)UITest",
-            deploymentTarget: .iOS(targetVersion: "13.0", devices: [.iphone, .ipad]),
-            infoPlist: .default,
-            sources: ["TargetUITest/Tests/**"],
             dependencies: [
                 .target(name: projectName)
             ]
